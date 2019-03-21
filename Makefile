@@ -1,36 +1,36 @@
 docker/run/server:
-	docker container rm keywordss-api
-	docker run -d -p 8080:8080 --name keywordss-api tea1013/keywordss-api:latest make run
+	docker run -d -p 8080:8080 --name keywordss-api hatchgroup/keywordss-api:latest make run
 	@echo 'Connect Server port :8080 !!!'
 
 docker/stop/server:
 	docker container stop keywordss-api
+	docker container rm keywordss-api
 
 image/pull:
 	$(MAKE) image/pull/front
 	$(MAKE) image/pull/api
-	$(MAKE) image/pull/db
+#	$(MAKE) image/pull/db
 
 image/pull/front:
-	docker pull shoichi1023/keywordss-front
+	docker pull hatchgroup/keywordss-front
 
 image/pull/api:
-	docker pull tea1013/keywordss-api
+	docker pull hatchgroup/keywordss-api
 
 image/pull/db:
-	docker pull shoichi1023/mysql-mecab-parser
+	docker pull hatchgtoup/keywordss-db
 
 image/rm:
 	$(MAKE) image/rm/front
 	$(MAKE) image/rm/api
-	$(MAKE) image/rm/db
+#	$(MAKE) image/rm/db
 
 image/rm/front:
-	docker image rm -f shoichi1023/keywordss-front
+	docker image rm -f hatchgroup/keywordss-front
 
 image/rm/api:
-	docker image rm -f tea1013/keywordss-api
+	docker image rm -f hatchgroup/keywordss-api
 
 image/rm/db:
-	docker image rm -f shoichi1023/mysql-mecab-parser
+	docker image rm -f hatchgroup/keywordss-db
 
