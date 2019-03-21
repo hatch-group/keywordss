@@ -9,7 +9,7 @@ docker/stop/server:
 image/pull:
 	$(MAKE) image/pull/front
 	$(MAKE) image/pull/api
-#	$(MAKE) image/pull/db
+	$(MAKE) image/pull/db
 
 image/pull/front:
 	docker pull hatchgroup/keywordss-front
@@ -18,12 +18,12 @@ image/pull/api:
 	docker pull hatchgroup/keywordss-api
 
 image/pull/db:
-	docker pull hatchgtoup/keywordss-db
+	docker pull hatchgroup/keywordss-db
 
 image/rm:
 	$(MAKE) image/rm/front
 	$(MAKE) image/rm/api
-#	$(MAKE) image/rm/db
+	$(MAKE) image/rm/db
 
 image/rm/front:
 	docker image rm -f hatchgroup/keywordss-front
